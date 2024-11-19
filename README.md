@@ -8,7 +8,7 @@ MeloTTS demo on Axera Card
 
 ## 下载模型
 ```
-
+./download_models.sh
 ```
 
 ## 运行
