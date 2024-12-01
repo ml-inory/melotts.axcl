@@ -63,11 +63,11 @@ std::unique_ptr<middleware::runner> load_runner(const std::string& model_path) {
 
 int main(int argc, char** argv) {
     cmdline::parser cmd;
-    cmd.add<std::string>("encoder", 'e', "encoder onnx", false, "../models/encoder.onnx");
-    cmd.add<std::string>("decoder", 'd', "decoder axmodel", false, "../models/decoder.axmodel");
-    cmd.add<std::string>("lexicon", 'l', "lexicon.txt", false, "../models/lexicon.txt");
-    cmd.add<std::string>("token", 't', "tokens.txt", false, "../models/tokens.txt");
-    cmd.add<std::string>("g", 0, "g.bin", false, "../models/g.bin");
+    cmd.add<std::string>("encoder", 'e', "encoder onnx", false, "./models/encoder.onnx");
+    cmd.add<std::string>("decoder", 'd', "decoder axmodel", false, "./models/decoder.axmodel");
+    cmd.add<std::string>("lexicon", 'l', "lexicon.txt", false, "./models/lexicon.txt");
+    cmd.add<std::string>("token", 't', "tokens.txt", false, "./models/tokens.txt");
+    cmd.add<std::string>("g", 0, "g.bin", false, "./models/g.bin");
 
     cmd.add<std::string>("sentence", 's', "input sentence", false, "爱芯元智半导体股份有限公司，致力于打造世界领先的人工智能感知与边缘计算芯片。服务智慧城市、智能驾驶、机器人的海量普惠的应用");
     cmd.add<std::string>("wav", 'w', "wav file", false, "output.wav");
