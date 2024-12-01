@@ -27,5 +27,5 @@ install(TARGETS ${PROJECT_NAME}
             DESTINATION ./)
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
-    INSTALL_RPATH "$ORIGIN/../3rdparty/onnxruntime/lib"
+    INSTALL_RPATH "$ORIGIN/../${ORT_DIR}/lib"
 )                     
