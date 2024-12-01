@@ -32,17 +32,14 @@ include_directories(3rdparty/librosa)
 # onnxruntime
 if (CROSS_COMPILE)
     set(ORT_DIR 3rdparty/onnxruntime_aarch64)
-    include_directories(${ORT_DIR}/include)
-    include_directories(${ORT_DIR}/include/onnxruntime/core/session)
-    link_directories(${ORT_DIR}/lib)
-    list (APPEND ORT_LIBS
-    onnxruntime
-    onnxruntime_providers_shared)
 else()
     set(ORT_DIR 3rdparty/onnxruntime_x86)
-    include_directories(${ORT_DIR}/include)
-    include_directories(${ORT_DIR}/include/onnxruntime/core/session)
-    link_directories(${ORT_DIR}/lib)
-    list (APPEND ORT_LIBS onnxruntime)
 endif()    
+
+include_directories(${ORT_DIR}/include)
+include_directories(${ORT_DIR}/include/onnxruntime/core/session)
+link_directories(${ORT_DIR}/lib)
+list (APPEND ORT_LIBS
+onnxruntime
+onnxruntime_providers_shared)
 
