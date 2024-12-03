@@ -92,9 +92,38 @@ public:
         return words;
     } 
 
+    std::vector<std::string> merge_english(const std::vector<std::string>& splitted_text) {
+        std::vector<std::string> words;
+        int i = 0;
+        while (i < splitted_text.size()) {
+            std::string s;
+            if (is_english(splitted_text[i])) {
+                while (i < splitted_text.size()) {
+                    if (!is_english(splitted_text[i])) {
+                        break;
+                    }
+                    s += splitted_text[i];
+                    i++;
+                }
+                // to lowercase
+                std::transform(s.begin(), s.end(), s.begin(),
+                    [](unsigned char c){ return std::tolower(c); });
+                words.push_back(s);
+                if (i >= splitted_text.size())
+                    break;
+            }
+            else {
+                words.push_back(splitted_text[i]);
+                i++;
+            }
+        }
+        return words;
+    }
+
     void convert(const std::string& text, std::vector<int>& phones, std::vector<int>& tones) {
         auto splitted_text = splitEachChar(text);
-        for (auto c : splitted_text) {
+        auto zh_mix_en = merge_english(splitted_text);
+        for (auto c : zh_mix_en) {
             std::string s{c};
             if (s == "，") 
                 s = ",";
