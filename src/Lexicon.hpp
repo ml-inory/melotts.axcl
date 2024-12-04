@@ -92,6 +92,13 @@ public:
         return words;
     } 
 
+    bool is_english(std::string s) {
+        if (s.size() == 1)
+            return (s[0] >= 'A' && s[0] <= 'Z') || (s[0] >= 'a' && s[0] <= 'z');
+        else
+            return false;
+    }
+
     std::vector<std::string> merge_english(const std::vector<std::string>& splitted_text) {
         std::vector<std::string> words;
         int i = 0;
